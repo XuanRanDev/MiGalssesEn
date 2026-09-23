@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import dev.xuanran.miglasses.core.HookHost
-import dev.xuanran.miglasses.hook.HostIpHook
 import dev.xuanran.miglasses.hook.SavePathHook
 import io.github.libxposed.api.XposedInterface
 import io.github.libxposed.api.XposedModule
@@ -39,9 +38,6 @@ class ModuleMain : XposedModule() {
                 apkPath = param.applicationInfo.sourceDir
             )
         }.onFailure { log(Log.ERROR, "MiGlassesEn", "安装保存路径 Hook 失败", it) }
-        runCatching {
-            HostIpHook.install(this, context, param.defaultClassLoader)
-        }.onFailure { log(Log.ERROR, "MiGlassesEn", "安装 hostIP Hook 失败", it) }
         return result
     }
 
