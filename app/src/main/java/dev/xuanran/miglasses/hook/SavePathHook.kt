@@ -16,17 +16,13 @@ object SavePathHook {
     private const val CACHE_KEY = "content-values-builders"
     private const val QUERY_VERSION = 1
 
-    @Volatile
-    private var dexKitLoaded = false
-
     fun install(
         module: XposedModule,
         context: Context,
         classLoader: ClassLoader,
         apkPath: String
     ) {
-        loadDexKit()
-        DexKitCacheBridge.init(DexKitCache.create(context, QUERY_VERSION))
+        DexKitCache.initialize(context, QUERY_VERSION)
         val bridge = DexKitCacheBridge.create(CACHE_TAG, apkPath)
         val dexMethods = bridge.getMethods(CACHE_KEY) {
             searchPackages("com.superhexa.supervision")
@@ -50,12 +46,6 @@ object SavePathHook {
         )
     }
 
-    @Synchronized
-    private fun loadDexKit() {
-        if (dexKitLoaded) return
-        System.loadLibrary("dexkit")
-        dexKitLoaded = true
-    }
 
     private fun replaceRelativePath(chain: XposedInterface.Chain): Any? {
         val result = chain.proceed()

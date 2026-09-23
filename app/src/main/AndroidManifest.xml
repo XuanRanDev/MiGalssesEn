@@ -14,6 +14,12 @@
         </activity>
         <receiver
             android:name=".receiver.HostIpReceiver"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="dev.xuanran.miglasses.action.CAPTURE_HOST_IP" />
+                <action android:name="dev.xuanran.miglasses.action.P2P_RESULT" />
+                <action android:name="dev.xuanran.miglasses.action.NETWORK_TRACE" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

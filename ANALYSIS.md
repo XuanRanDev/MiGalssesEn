@@ -312,3 +312,22 @@ HTTP。客户端使用全局 `RetrofitFactory`，所以不能只凭接口注解�
 因此本轮没有完成动态无认证验证，也没有对 DELETE/PUT 发出任何破坏性请求。最小下一步是
 在手机 App 的 OkHttp 层记录真实请求 Header，或让电脑加入同一 Wi-Fi Direct Group 后仅做
 只读的 `/v1/filelists` 与 `/v1/pointLog?size=1` 验证。
+
+## 重建的网络与 P2P 功能分支
+
+分支 `feature/network-hook-p2p-control` 在 Git 仓库重新初始化后依据会话记录重建：
+
+- 主进程恢复 HostIpHook、DexKit 网络 Hook 和手动 P2P 广播入口。
+- 网络 Hook 通过 DexKit 缓存定位混淆后的
+  `okhttp3.internal.http.b.intercept`，不依赖固定类名和方法名。
+- DexKit native 库与缓存通过 `DexKitCache.initialize` 在每个进程内只初始化一次。
+- 模块页面恢复 P2P 开启/关闭按钮、最近控制结果和最近网络摘要。
+- 控制广播使用 remote preferences 中生成的随机令牌校验。
+
+真机已确认网络 Hook 可观察 `GET /v1/filelists`、媒体详情、素材下载和删除请求。
+文件列表、详情与删除请求包含 Authorization、Cookie、timestamp 和 signature；文件素材
+下载请求未观察到这些业务鉴权 Header，但服务端是否允许独立无鉴权下载仍未验证。
+
+手动 P2P 开启的 `MiWearWiFiP2PConfigHandler.x(Continuation)` 反射签名在 3.3.0 真机上
+已确认不匹配，因此当前入口属于实验功能；网络观察、Host IP 捕获和保存路径功能不受影响。
+重建分支无法与已丢失的旧 Git 对象逐字节比对，但已通过 release 编译、R8 和资源压缩。

@@ -59,4 +59,34 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/refresh_host_ip" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/start_p2p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/start_p2p" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/stop_p2p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/stop_p2p" />
+
+    <TextView
+        android:id="@+id/p2p_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/p2p_status_waiting"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:id="@+id/network_trace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/network_trace_waiting"
+        android:textIsSelectable="true" />
 </LinearLayout>

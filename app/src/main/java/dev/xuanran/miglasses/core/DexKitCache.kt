@@ -42,6 +42,15 @@ class DexKitCache private constructor(
     companion object {
         private const val PREFS = "mi_glasses_dexkit_cache"
         private const val KEY_GENERATION = "__generation"
+        @Volatile private var initialized = false
+
+        @Synchronized
+        fun initialize(context: Context, queryVersion: Int) {
+            if (initialized) return
+            System.loadLibrary("dexkit")
+            DexKitCacheBridge.init(create(context, queryVersion))
+            initialized = true
+        }
 
         fun create(context: Context, queryVersion: Int): DexKitCache {
             val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)

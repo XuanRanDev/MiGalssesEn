@@ -10,4 +10,10 @@
     <string name="host_ip_waiting">眼镜 IP：尚未捕获。请打开官方 App 的“文件空间”并开始连接，然后点刷新。</string>
     <string name="host_ip_value">眼镜 IP：%1$s\n文件列表：http://%1$s:8080/v1/filelists\n捕获时间戳：%2$d\n来源：%3$s</string>
     <string name="refresh_host_ip">刷新眼镜 IP</string>
+    <string name="start_p2p">手动开启 P2P</string>
+    <string name="stop_p2p">手动关闭 P2P</string>
+    <string name="p2p_status_waiting">P2P 状态：尚无操作结果</string>
+    <string name="network_trace_waiting">网络记录：尚未捕获眼镜 8080 请求</string>
+    <string name="p2p_command_sent">命令已发送，请稍后刷新状态</string>
+    <string name="p2p_token_missing">控制令牌尚未生成，请确认模块已激活</string>
 </resources>
