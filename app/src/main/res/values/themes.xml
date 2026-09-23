@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.MiGlassesEn" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#6750A4</item>
+        <item name="colorPrimaryVariant">#4F378B</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
+</resources>

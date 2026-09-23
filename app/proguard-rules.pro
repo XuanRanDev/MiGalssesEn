@@ -1,0 +1,2 @@
+-keep class dev.xuanran.miglasses.ModuleMain { *; }
+-keep class dev.xuanran.miglasses.ui.MainActivity { *; }

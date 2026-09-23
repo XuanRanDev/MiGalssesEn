@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Mi Glasses Save Path</string>
+    <string name="title">小米眼镜保存目录</string>
+    <string name="description">修改“文件空间”保存到手机时写入 MediaStore 的相对目录，不改变文件名和媒体类型。</string>
+    <string name="path_hint">例如：DCIM/MiGlasses</string>
+    <string name="save">保存</string>
+    <string name="saved">已保存，下一次保存媒体时生效</string>
+    <string name="not_activated">模块尚未激活，无法写入远程配置</string>
+    <string name="invalid_path">目录必须是相对路径，不能包含 ..，且必须位于 DCIM、Pictures 或 Movies 下</string>
+    <string name="host_ip_waiting">眼镜 IP：尚未捕获。请打开官方 App 的“文件空间”并开始连接，然后点刷新。</string>
+    <string name="host_ip_value">眼镜 IP：%1$s\n文件列表：http://%1$s:8080/v1/filelists\n捕获时间戳：%2$d\n来源：%3$s</string>
+    <string name="refresh_host_ip">刷新眼镜 IP</string>
+</resources>
